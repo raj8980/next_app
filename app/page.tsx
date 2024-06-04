@@ -1,9 +1,9 @@
-import axios from "axios";
-import Image from "next/image";
+
+import { getUser } from "./actions/user";
 
 export default async function Home() {
   const userDetails = await getUserDetails();
-
+ 
   return (
     <div className="flex flex-col justify-center h-screen">
       <div className="flex justify-center">
@@ -19,6 +19,7 @@ export default async function Home() {
 }
 
 async function getUserDetails(){
-  const response = await axios.get("http://localhost:3000/api/user");
-  return response.data;
+
+  const response = await getUser();
+  return response;
 }
